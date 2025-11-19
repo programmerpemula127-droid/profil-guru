@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Nurlita Sari</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      /* Font */
+      body {
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Navbar floating shadow */
+      .navbar {
+        transition: 0.3s;
+      }
+
+      .navbar.scrolled {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* HERO DECORATION */
+      .hero-section {
+        position: relative;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, #ffda77, #ffc107);
+        border-radius: 50%;
+        top: -100px;
+        left: -150px;
+        filter: blur(80px);
+        opacity: 0.4;
+        animation: float1 6s ease-in-out infinite;
+      }
+
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, #4caf50, #2e7d32);
+        border-radius: 50%;
+        bottom: -100px;
+        right: -120px;
+        filter: blur(120px);
+        opacity: 0.4;
+        animation: float2 7s ease-in-out infinite;
+      }
+
+      /* Floating animation */
+      @keyframes float1 {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float2 {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(25px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* HERO image stacked */
+      .hero-img-container {
+        position: relative;
+        width: 430px;
+        height: 430px;
+      }
+
+      .blob-img {
+        position: absolute;
+        top: 15px;
+        left: -20px;
+        z-index: 1;
+      }
+
+      .profile-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        animation: fadeIn 2s ease;
+      }
+
+      /* Title Animation */
+      .hello-box {
+        background: #ffc107;
+        padding: 8px 18px;
+        border-radius: 20px;
+        display: inline-block;
+        font-weight: 600;
+        animation: slideIn 1.5s ease;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      /* Section card hover */
+      .service-card {
+        transition: 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Scroll reveal default invisible */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.9s ease;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===============================
+   BUBBLE ANIMATION DECORATION
+   =============================== */
+
+      .bubble-area {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .bubble {
+        position: absolute;
+        bottom: -100px;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        animation: rise 10s infinite ease-in;
+        filter: blur(2px);
+      }
+
+      @keyframes rise {
+        0% {
+          transform: translateY(0) scale(1);
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(-1200px) scale(1.6);
+          opacity: 0;
+        }
+      }
+
+      /* Variasi ukuran */
+      .bubble.small {
+        width: 10px;
+        height: 10px;
+      }
+      .bubble.medium {
+        width: 16px;
+        height: 16px;
+      }
+      .bubble.large {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* ORNAMEN FLYING DECOR */
+      .flying-decor {
+        position: absolute;
+        opacity: 0.3;
+        z-index: 0;
+        pointer-events: none;
+        animation: floatDecor 6s ease-in-out infinite;
+      }
+
+      @keyframes floatDecor {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-30px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      /* --------------------
+ANIMATED SERVICE CARD
+--------------------- */
+
+      .service-card {
+        background: white;
+        border-radius: 16px;
+        transition: all 0.35s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Glow hijau lembut saat hover */
+      .service-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(0, 128, 0, 0.2);
+      }
+
+      /* Cahaya halus */
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: -80px;
+        width: 160px;
+        height: 160px;
+
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0;
+        transition: all 0.5s ease;
+      }
+
+      .service-card:hover::before {
+        opacity: 1;
+        transform: translate(40px, 40px);
+      }
+
+      /* --------------------
+    REVEAL ANIMATION (SLIDE + FADE)
+--------------------- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bubble-area"></div>
+
+    <!-- NAVBAR -->
+    <nav
+      class="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow-sm py-3"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold fs-4 text-success" href="#">Nurlita.</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#biodata">Biodata</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#perjalanan">Perjalanan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#filosofi">Filosofi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kegiatan">Kegiatan</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="biodata" class="py-5 hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mt-4">
+            <div class="hello-box mb-3">Hello Semuanya!</div>
+
+            <h1 class="fw-bold display-5 reveal">
+              Saya <span class="text-warning">Nurlita Sari, S.S</span>, <br />
+              Guru Inklusi.
+            </h1>
+
+            <p class="mt-3 text-muted fs-5 reveal">
+              Saya seorang guru inklusi yang sudah mengajar dari tahun 2023 di
+              SMPIT Latansa Cendekia. Saya lahir tanggal 12 September 1991.
+            </p>
+          </div>
+
+          <div class="col-md-6 text-center mt-4">
+            <div
+              class="hero-img-container position-relative d-inline-block reveal"
+            >
+              <!-- Blob di belakang -->
+              <img src="blob.svg" class="blob-img" alt="blob" width="450" />
+
+              <!-- Gambar profil di depan -->
+              <img
+                src="profil.svg"
+                class="profile-img rounded-circle"
+                alt="profil"
+                width="400"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang -->
+    <section id="tentang" class="py-5 bg-success text-white">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mt-4">
+            <h5 class="text-warning fw-bold fs-2 reveal">
+              – Apa itu Guru Inklusi ?
+            </h5>
+            <p class="mt-3 fs-5 reveal">
+              Guru inklusi adalah pendidik dengan kualifikasi pendidikan luar
+              biasa. <br />
+              Saya berdedikasi untuk menciptakan lingkungan belajar yang ramah
+              dan suportif untuk semua siswa, terlepas dari kondisi fisik,
+              intelektual, atau sosial-emosional mereka, saya memastikan setiap
+              anak mendapatkan kesempatan yang sama untuk berhasil.
+            </p>
+          </div>
+
+          <div class="col-md-6 text-center">
+            <img src="image2.svg" class="img-fluid reveal" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h5 class="text-warning fw-bold fs-2 reveal">
+          – Tentang Pendidikan Inklusi
+        </h5>
+        <h2 class="fw-bold fs-2 reveal">Prinsip Inti Pendidikan Inklusi</h2>
+
+        <div class="row mt-4 text-light">
+          <div class="col-md-4 mb-4">
+            <div class="service-card p-4 shadow-sm rounded bg-success reveal">
+              <h5 class="fw-bold fs-3">Penerimaan & Keberagaman</h5>
+              <p class="fs-5">
+                Merangkul keunikan setiap siswa sebagai bagian dari kekayaan
+                kelas.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="service-card p-4 shadow-sm rounded bg-success reveal">
+              <h5 class="fw-bold fs-3">Adaptasi Kurikulum</h5>
+              <p class="fs-5">
+                Menyesuaikan materi dan metode pengajaran agar sesuai dengan
+                kebutuhan individu siswa.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="service-card p-4 shadow-sm rounded bg-success reveal">
+              <h5 class="fw-bold fs-3">Dukungan Penuh</h5>
+              <p class="fs-5">
+                Memberikan layanan khusus dan bimbingan untuk mengatasi hambatan
+                belajar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tentang -->
+    <section class="py-5 bg-success">
+      <div class="container">
+        <h5 class="text-warning fw-bold fs-2 reveal">
+          – Peran saya sebagai Guru Inklusi
+        </h5>
+
+        <div class="row mt-4">
+          <div class="col-md-6 mb-4">
+            <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+              <h5 class="fw-bold">Melakukan Asesmen</h5>
+              <p>
+                Mengidentifikasi kebutuhan, potensi, dan hambatan belajar siswa
+                secara individual.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+              <h5 class="fw-bold">Menyusun PPI</h5>
+              <p>
+                Merancang Program Pembelajaran Individual (PPI) bersama guru
+                kelas dan orang tua.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+              <h5 class="fw-bold">Berkolaborasi</h5>
+              <p>
+                Bekerja sama secara aktif dengan orang tua, guru kelas, dan
+                terapis profesional.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+              <h5 class="fw-bold">Menjadi Fasilitator</h5>
+              <p>
+                Membimbing, memotivasi, dan menciptakan iklim kelas yang
+                kondusif bagi semua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perjalanan -->
+    <section id="perjalanan" class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center">
+            <img src="image1.svg" class="img-fluid reveal" alt="" />
+          </div>
+
+          <div class="col-md-6 mt-4">
+            <h5 class="text-warning fw-bold fs-2 reveal">
+              – Perjalanan Dedikasi
+            </h5>
+            <h2 class="fw-bold reveal">
+              Tahun Mulai Mengajar <span class="text-warning">2023</span>
+            </h2>
+
+            <p class="mt-3 reveal">
+              Titik Awal Pengabdian Memulai perjalanan dedikasi di dunia
+              pendidikan inklusi, membawa semangat baru dan komitmen penuh untuk
+              memberikan yang terbaik bagi setiap siswa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofi -->
+    <section id="filosofi" class="py-5 bg-success text-white">
+      <div class="container">
+        <div class="row justify-content-center align-items-center text-center">
+          <div class="col-md-8 mt-4">
+            <h2 class="text-warning fw-bold reveal">– Filosofi Mengajar</h2>
+
+            <p class="mt-3 fs-3 reveal">
+              Setiap anak adalah unik. Tugas kita adalah menciptakan taman di
+              mana mereka semua bisa tumbuh dan mekar bersama.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-warning text-white rounded-pill px-4 mt-3 reveal"
+            >
+              — Nurlitasari, S.S.
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filosofi -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h5 class="text-warning fw-bold fs-2 reveal">– Kunci Kompetensi</h5>
+
+        <div class="row mt-4">
+          <div class="col-md-6 mb-4">
+            <div class="service-card p-4 shadow-sm rounded reveal">
+              <p>
+                Empati & Kesabaran Kemampuan untuk memahami perspektif unik
+                setiap siswa dan memberikan waktu serta ruang yang mereka
+                butuhkan untuk bertumbuh dan belajar sesuai kecepatan mereka
+                sendiri.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4">
+            <div class="service-card p-4 shadow-sm rounded reveal">
+              <p>
+                Kreativitas & Fleksibilitas Selalu mencari cara-cara baru untuk
+                menyampaikan materi, mengadaptasi media pembelajaran, dan
+                menyesuaikan rencana pengajaran dengan cepat untuk merespons
+                kebutuhan siswa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kegiatan -->
+    <section id="kegiatan" class="py-5 bg-success">
+      <div class="container">
+        <div class="row align-items-center">
+          <h5 class="text-warning fw-bold fs-2 reveal">
+            – Di Dalam Ruang Kelas Inklusi
+          </h5>
+
+          <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+              <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+                <p>
+                  Guru membimbing tangan siswa dalam aktivitas seni Pendampingan
+                  personal untuk setiap kebutuhan.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+                <p>
+                  Alat bantu belajar adaptif seperti balok warna-warni
+                  Menggunakan alat bantu yang adaptif dan kreatif.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="service-card p-4 shadow-sm rounded bg-light reveal">
+                <p>
+                  Siswa beragam duduk melingkar di karpet Membangun komunitas
+                  kelas yang suportif.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pentutup -->
+    <section class="py-5 text-white">
+      <div class="container">
+        <div class="row justify-content-center align-items-center text-center">
+          <div class="col-md-8 mt-4">
+            <h2 class="text-warning fw-bold reveal">
+              – Visi: Pendidikan Berkualitas untuk Semua
+            </h2>
+
+            <div class="col-md-12">
+              <video
+                src="video.mp4"
+                width="90%"
+                class="reveal"
+                autoplay
+                controls
+              ></video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 bg-dark text-white">
+      © 2025 Nurlita Portfolio — All Rights Reserved
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar shadow on scroll
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".navbar");
+        nav.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Scroll reveal effect
+      function reveal() {
+        let reveals = document.querySelectorAll(".reveal");
+        for (let i = 0; i < reveals.length; i++) {
+          let windowHeight = window.innerHeight;
+          let elementTop = reveals[i].getBoundingClientRect().top;
+          let visiblePoint = 150;
+
+          if (elementTop < windowHeight - visiblePoint) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+
+      window.addEventListener("scroll", reveal);
+      window.addEventListener("load", reveal);
+
+      // =======================
+      // BUBBLE DECORATION
+      // =======================
+
+      const bubbleArea = document.querySelector(".bubble-area");
+
+      function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        // Random size
+        const sizeClass = ["small", "medium", "large"];
+        bubble.classList.add(
+          sizeClass[Math.floor(Math.random() * sizeClass.length)]
+        );
+
+        // Random horizontal position
+        bubble.style.left = Math.random() * window.innerWidth + "px";
+
+        // Random speed
+        bubble.style.animationDuration = 8 + Math.random() * 6 + "s";
+
+        bubbleArea.appendChild(bubble);
+
+        // Remove bubble after animation
+        setTimeout(() => {
+          bubble.remove();
+        }, 15000);
+      }
+
+      // Create many bubbles continuously
+      setInterval(createBubble, 500);
+    </script>
+  </body>
+</html>

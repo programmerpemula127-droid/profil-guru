@@ -51,3 +51,28 @@ function createBubble() {
 
 // Create many bubbles continuously
 setInterval(createBubble, 500);
+
+const track = document.getElementById("galeri");
+const btnLeft = document.getElementById("gal-left");
+const btnRight = document.getElementById("gal-right");
+
+// Tombol navigasi
+btnRight.onclick = () => (track.scrollLeft += 300);
+btnLeft.onclick = () => (track.scrollLeft -= 300);
+
+function doScroll() {
+  track.scrollLeft += 300;
+
+  // Jika sudah hampir mencapai akhir, reset
+  if (track.scrollLeft + track.clientWidth >= track.scrollWidth - 10) {
+    track.scrollLeft = 0;
+  }
+}
+
+let autoScroll = setInterval(doScroll, 3000);
+
+// Pause saat hover
+track.addEventListener("mouseenter", () => clearInterval(autoScroll));
+track.addEventListener("mouseleave", () => {
+  autoScroll = setInterval(doScroll, 3000);
+});

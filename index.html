@@ -23,278 +23,7 @@
       rel="stylesheet"
     />
 
-    <!-- Custom CSS -->
-    <style>
-      /* Font */
-      body {
-        font-family: "Poppins", sans-serif;
-        overflow-x: hidden;
-      }
-
-      /* Smooth scroll */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Navbar floating shadow */
-      .navbar {
-        transition: 0.3s;
-      }
-
-      .navbar.scrolled {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      }
-
-      /* HERO DECORATION */
-      .hero-section {
-        position: relative;
-      }
-
-      .hero-section::before {
-        content: "";
-        position: absolute;
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(circle, #ffda77, #ffc107);
-        border-radius: 50%;
-        top: -100px;
-        left: -150px;
-        filter: blur(80px);
-        opacity: 0.4;
-        animation: float1 6s ease-in-out infinite;
-      }
-
-      .hero-section::after {
-        content: "";
-        position: absolute;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, #4caf50, #2e7d32);
-        border-radius: 50%;
-        bottom: -100px;
-        right: -120px;
-        filter: blur(120px);
-        opacity: 0.4;
-        animation: float2 7s ease-in-out infinite;
-      }
-
-      /* Floating animation */
-      @keyframes float1 {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes float2 {
-        0% {
-          transform: translateX(0);
-        }
-        50% {
-          transform: translateX(25px);
-        }
-        100% {
-          transform: translateX(0);
-        }
-      }
-
-      /* HERO image stacked */
-      .hero-img-container {
-        position: relative;
-        width: 430px;
-        height: 430px;
-      }
-
-      .blob-img {
-        position: absolute;
-        top: 15px;
-        left: -20px;
-        z-index: 1;
-      }
-
-      .profile-img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        animation: fadeIn 2s ease;
-      }
-
-      /* Title Animation */
-      .hello-box {
-        background: #ffc107;
-        padding: 8px 18px;
-        border-radius: 20px;
-        display: inline-block;
-        font-weight: 600;
-        animation: slideIn 1.5s ease;
-      }
-
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      /* Section card hover */
-      .service-card {
-        transition: 0.3s;
-      }
-
-      .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      }
-
-      /* Scroll reveal default invisible */
-      .reveal {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.9s ease;
-      }
-
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* ===============================
-   BUBBLE ANIMATION DECORATION
-   =============================== */
-
-      .bubble-area {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 0;
-      }
-
-      .bubble {
-        position: absolute;
-        bottom: -100px;
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, 0.35);
-        border-radius: 50%;
-        animation: rise 10s infinite ease-in;
-        filter: blur(2px);
-      }
-
-      @keyframes rise {
-        0% {
-          transform: translateY(0) scale(1);
-          opacity: 0.4;
-        }
-        50% {
-          opacity: 0.9;
-        }
-        100% {
-          transform: translateY(-1200px) scale(1.6);
-          opacity: 0;
-        }
-      }
-
-      /* Variasi ukuran */
-      .bubble.small {
-        width: 10px;
-        height: 10px;
-      }
-      .bubble.medium {
-        width: 16px;
-        height: 16px;
-      }
-      .bubble.large {
-        width: 28px;
-        height: 28px;
-      }
-
-      /* ORNAMEN FLYING DECOR */
-      .flying-decor {
-        position: absolute;
-        opacity: 0.3;
-        z-index: 0;
-        pointer-events: none;
-        animation: floatDecor 6s ease-in-out infinite;
-      }
-
-      @keyframes floatDecor {
-        0% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-30px);
-        }
-        100% {
-          transform: translateY(0);
-        }
-      }
-
-      /* --------------------
-ANIMATED SERVICE CARD
---------------------- */
-
-      .service-card {
-        background: white;
-        border-radius: 16px;
-        transition: all 0.35s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* Glow hijau lembut saat hover */
-      .service-card:hover {
-        transform: translateY(-10px) scale(1.03);
-        box-shadow: 0 20px 40px rgba(0, 128, 0, 0.2);
-      }
-
-      /* Cahaya halus */
-      .service-card::before {
-        content: "";
-        position: absolute;
-        top: -80px;
-        left: -80px;
-        width: 160px;
-        height: 160px;
-
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0;
-        transition: all 0.5s ease;
-      }
-
-      .service-card:hover::before {
-        opacity: 1;
-        transform: translate(40px, 40px);
-      }
-
-      /* --------------------
-    REVEAL ANIMATION (SLIDE + FADE)
---------------------- */
-      .reveal {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease-out;
-      }
-
-      .reveal.show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -515,6 +244,237 @@ ANIMATED SERVICE CARD
               pendidikan inklusi, membawa semangat baru dan komitmen penuh untuk
               memberikan yang terbaik bagi setiap siswa.
             </p>
+
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn btn-warning text-white rounded-pill px-4 mt-2 reveal"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Lihat Selengkapnya <i class="bi bi-arrow-right"></i>
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div
+                class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg"
+              >
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      Pengalaman Saya dalam Mengajar Anak Istimewa
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Pengalaman Berkesan Sebagai Guru Inklusi</h4>
+
+                    <p>
+                      Awalnya saya sempat syok ketika seorang siswa mengamuk
+                      tanpa kendali dan berteriak-teriak di dalam kelas.
+                      Pengalaman ini menekankan pentingnya melakukan observasi
+                      dan pencatatan perilaku untuk memahami kebutuhan khusus
+                      anak, karena banyak perilaku yang dilakukan sering kali
+                      berada di luar kebiasaan anak pada umumnya.
+                    </p>
+
+                    <p>
+                      Namun seiring waktu, saya menemukan banyak sisi positif
+                      dan pelajaran hidup dari siswa-siswa istimewa, di
+                      antaranya:
+                    </p>
+
+                    <ul>
+                      <li>
+                        Mengajarkan saya untuk lebih bersyukur di tengah
+                        keterbatasan.
+                      </li>
+                      <li>
+                        Menunjukkan bahwa bahagia itu sederhana — misalnya
+                        mereka sudah sangat senang hanya dengan tos atau high
+                        five.
+                      </li>
+                      <li>
+                        Melatih kesabaran ekstra dan kemampuan menghadapi segala
+                        hal dengan kepala dingin.
+                      </li>
+                    </ul>
+
+                    <p>
+                      Selain itu, saya menyadari bahwa anak-anak ini memiliki
+                      kecerdasan di atas rata-rata yang sering disertai
+                      sensitivitas tinggi serta cara berpikir yang berbeda.
+                      Perilaku mereka yang aktif dan kritis — seperti tiba-tiba
+                      mengganggu teman atau memotong penjelasan guru dengan
+                      pertanyaan tak terduga — sering kali disalahartikan
+                      sebagai sulit diatur.
+                    </p>
+
+                    <p>
+                      Kisah ini menunjukkan bahwa pendidikan untuk anak cerdas
+                      istimewa membutuhkan kesabaran, empati, strategi khusus,
+                      serta cara pandang baru terhadap arti kecerdasan.
+                    </p>
+
+                    <h5>1. Tantangan dan Kenyataan di Lapangan</h5>
+
+                    <ul>
+                      <li>
+                        <strong
+                          >Situasi Kelas yang Dinamis dan Sulit
+                          Diprediksi</strong
+                        >
+                        <p>
+                          Siswa berkebutuhan khusus (ABK) dapat menunjukkan
+                          perilaku tak terduga, seperti tantrum, tiba-tiba
+                          mengamuk, menangis, atau asyik dengan dunianya sendiri
+                          di tengah pelajaran.
+                        </p>
+                      </li>
+
+                      <li>
+                        <strong
+                          >Perlu Pendekatan yang Berbeda untuk Setiap
+                          Anak</strong
+                        >
+                        <p>
+                          Saya harus menyiapkan strategi yang beragam. Beberapa
+                          anak perlu ditangani dengan lembut, namun ada pula
+                          yang memerlukan pendekatan lebih tegas untuk
+                          mengendalikan perilaku tertentu — sebelum kembali ke
+                          pendekatan yang suportif.
+                        </p>
+                      </li>
+                    </ul>
+
+                    <h5>2. Pelajaran dan Makna yang Saya Temukan</h5>
+
+                    <ul>
+                      <li>
+                        <strong>Pentingnya Keikhlasan dan Niat Tulus</strong>
+                        <p>
+                          Banyak guru yang bertahan lama (bahkan hingga 9 tahun)
+                          mengatakan bahwa kunci utamanya adalah keikhlasan.
+                          Jika bukan guru-guru inilah yang mau mengajar, kasihan
+                          anak-anak tersebut karena banyak sekolah yang menolak
+                          mereka.
+                        </p>
+                      </li>
+
+                      <li>
+                        <strong>Kesabaran Ekstra</strong>
+                        <p>
+                          Kesabaran menjadi kata kunci utama. Guru harus siap
+                          menunggu anak yang sedang menghitung kancing bajunya
+                          atau menenangkan anak yang sedang tantrum hingga ia
+                          merasa nyaman kembali.
+                        </p>
+                      </li>
+
+                      <li>
+                        <strong>Menemukan Keunikan dan Bakat Istimewa</strong>
+                        <p>
+                          Di balik tantangan, seringkali tersimpan bakat luar
+                          biasa:
+                        </p>
+                        <ul>
+                          <li>
+                            Ada yang pandai bernyanyi dan sangat antusias pada
+                            musik.
+                          </li>
+                          <li>
+                            Ada penyandang autisme yang berbakat bermain piano
+                            dan bernyanyi.
+                          </li>
+                          <li>
+                            Ada siswa tunanetra yang menjadi juara lomba
+                            Tahfizh.
+                          </li>
+                          <li>
+                            Ada yang mampu melukis abstrak hingga karyanya masuk
+                            pameran.
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <strong>Kebahagiaan yang Sederhana</strong>
+                        <p>
+                          Saya merasa terhibur dan bahagia melihat tingkah laku
+                          polos dan lucu dari murid-murid istimewa. Interaksi
+                          dengan mereka selalu memberi warna baru dalam
+                          kehidupan mengajar.
+                        </p>
+                      </li>
+                    </ul>
+
+                    <h5>3. Strategi dan Dukungan yang Diperlukan</h5>
+
+                    <ul>
+                      <li>
+                        <strong>Modifikasi Kurikulum dan Pembelajaran</strong>
+                        <p>
+                          Pembelajaran tidak bisa dipaksakan. Guru inklusi perlu
+                          menyesuaikan materi agar dapat diserap oleh ABK dengan
+                          nyaman — senyamannya si anak.
+                        </p>
+                      </li>
+
+                      <li>
+                        <strong>Peran Guru Pendamping (GPK)</strong>
+                        <p>
+                          Dukungan dari guru pendamping sangat krusial. Biasanya
+                          mereka membentuk tim yang solid dan rutin berdiskusi
+                          setiap minggu untuk merancang strategi terbaik bagi
+                          setiap ABK.
+                        </p>
+                      </li>
+
+                      <li>
+                        <strong>Pencegahan Perundungan (Bullying)</strong>
+                        <p>
+                          Penting bagi saya untuk menciptakan lingkungan belajar
+                          yang aman dan penuh penerimaan. Saya perlu memastikan
+                          anak berkebutuhan khusus mendapat perhatian memadai
+                          agar terhindar dari perundungan, sekaligus menumbuhkan
+                          sikap empati di antara siswa reguler.
+                        </p>
+                      </li>
+                    </ul>
+
+                    <p>
+                      <strong>
+                        Intinya, menjadi guru inklusi adalah sebuah panggilan
+                        yang penuh tantangan, namun juga memberikan pelajaran
+                        berharga tentang kemanusiaan, ketulusan, empati, dan
+                        kekuatan semangat setiap individu.
+                      </strong>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -582,28 +542,31 @@ ANIMATED SERVICE CARD
             – Di Dalam Ruang Kelas Inklusi
           </h5>
 
-          <div class="row mt-4">
-            <div class="col-md-4 mb-4">
-              <div class="service-card p-4 shadow-sm rounded bg-light reveal">
-                <p>
+          <div class="row justify-content-evenly mt-4">
+            <div class="card col-md-4 mb-4" style="width: 18rem">
+              <img src="foto2.svg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">
                   Guru membimbing tangan siswa dalam aktivitas seni Pendampingan
                   personal untuk setiap kebutuhan.
                 </p>
               </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-              <div class="service-card p-4 shadow-sm rounded bg-light reveal">
-                <p>
+            <div class="card col-md-4 mb-4" style="width: 18rem">
+              <img src="foto3.svg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">
                   Alat bantu belajar adaptif seperti balok warna-warni
                   Menggunakan alat bantu yang adaptif dan kreatif.
                 </p>
               </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-              <div class="service-card p-4 shadow-sm rounded bg-light reveal">
-                <p>
+            <div class="card col-md-4 mb-4" style="width: 18rem">
+              <img src="foto1.svg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <p class="card-text">
                   Siswa beragam duduk melingkar di karpet Membangun komunitas
                   kelas yang suportif.
                 </p>
@@ -637,68 +600,42 @@ ANIMATED SERVICE CARD
       </div>
     </section>
 
+    <!-- ====== DOCUMENTATION GALLERY SECTION ====== -->
+    <section id="dokumentasi" class="py-5 bg-success">
+      <div class="container">
+        <h2 class="text-center mb-4 fw-bold text-warning">
+          Dokumentasi Kegiatan
+        </h2>
+
+        <div class="gallery-container">
+          <!-- Tombol Navigasi -->
+          <div class="gallery-btn gallery-left" id="gal-left">❮</div>
+          <div class="gallery-btn gallery-right" id="gal-right">❯</div>
+
+          <!-- Track Galeri -->
+          <div class="gallery-track" id="galeri">
+            <!-- Ganti src gambar berikut dengan gambar dokumentasi Anda -->
+            <div class="gallery-item"><img src="foto1.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto2.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto3.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto4.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto5.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto6.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto7.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto8.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto9.jpg" alt="" /></div>
+            <div class="gallery-item"><img src="foto10.jpg" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="text-center py-4 bg-dark text-white">
       © 2025 Nurlita Portfolio — All Rights Reserved
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // Navbar shadow on scroll
-      window.addEventListener("scroll", function () {
-        const nav = document.querySelector(".navbar");
-        nav.classList.toggle("scrolled", window.scrollY > 50);
-      });
-
-      // Scroll reveal effect
-      function reveal() {
-        let reveals = document.querySelectorAll(".reveal");
-        for (let i = 0; i < reveals.length; i++) {
-          let windowHeight = window.innerHeight;
-          let elementTop = reveals[i].getBoundingClientRect().top;
-          let visiblePoint = 150;
-
-          if (elementTop < windowHeight - visiblePoint) {
-            reveals[i].classList.add("active");
-          }
-        }
-      }
-
-      window.addEventListener("scroll", reveal);
-      window.addEventListener("load", reveal);
-
-      // =======================
-      // BUBBLE DECORATION
-      // =======================
-
-      const bubbleArea = document.querySelector(".bubble-area");
-
-      function createBubble() {
-        const bubble = document.createElement("div");
-        bubble.classList.add("bubble");
-
-        // Random size
-        const sizeClass = ["small", "medium", "large"];
-        bubble.classList.add(
-          sizeClass[Math.floor(Math.random() * sizeClass.length)]
-        );
-
-        // Random horizontal position
-        bubble.style.left = Math.random() * window.innerWidth + "px";
-
-        // Random speed
-        bubble.style.animationDuration = 8 + Math.random() * 6 + "s";
-
-        bubbleArea.appendChild(bubble);
-
-        // Remove bubble after animation
-        setTimeout(() => {
-          bubble.remove();
-        }, 15000);
-      }
-
-      // Create many bubbles continuously
-      setInterval(createBubble, 500);
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
